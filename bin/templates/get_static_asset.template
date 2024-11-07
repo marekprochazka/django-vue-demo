@@ -1,0 +1,5 @@
+type StaticAsset = @@ASSETS@@;
+
+export const getStaticAsset = (asset: StaticAsset) => {
+  return `static/${asset}`;
+};
