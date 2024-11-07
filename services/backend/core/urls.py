@@ -17,8 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+
+class DummyApiView(APIView):
+    @staticmethod
+    def get(request):
+        return Response({'message': 'Hello, World!'})
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='entry.html'))
+    path('', TemplateView.as_view(template_name='entry.html')),
+    path('api/dummy/', DummyApiView.as_view())
 ]

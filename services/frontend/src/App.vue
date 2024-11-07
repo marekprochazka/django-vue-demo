@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import {getStaticAsset} from './generated/get_static_asset.ts'
+import { useApi } from './use/useApi';
 
+async function testApi() {
+  const rsp = await useApi('api/dummy/', 'GET');
+  console.log(rsp);
+}
+
+testApi();
 </script>
 
 <template>
